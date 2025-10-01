@@ -1,17 +1,17 @@
-function Stage(portfolio) {
-  if (portfolio == "stage 01") {
+function Phase(portfolio) {
+  if (portfolio == "phase 01") {
     return('F01')
   }
   else {
-    if (portfolio == "stage 02") {
+    if (portfolio == "phase 02") {
       return('F02')
     }
     else {
-      if (portfolio == "stage 03") {
+      if (portfolio == "phase 03") {
         return('F03')
       }
       else {
-        if (portfolio == "stage 04") {
+        if (portfolio == "phase 04") {
           return('F04')
         }
         else {
