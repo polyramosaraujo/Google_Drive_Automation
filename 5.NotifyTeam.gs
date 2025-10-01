@@ -1,6 +1,6 @@
-//FUNÇÃO "NotificarEquipe" RODANDO A CADA 15 MINUTOS >> ACIONADOR
+//"NotifyTeam" FUNCTION RUNNING EVERY 15 MINUTES >> TRIGGER
 
-function NotificarEquipe() {
+function NotifyTeam() {
 
   Logger.log('INÍCIO DA NOTIFICAÇÃO DAS EQUIPES NO DISCORD')
 
@@ -86,7 +86,7 @@ function NotificarEquipe() {
 
     //Se tiver arquivos com erro e/ou corretos
     if(array_erro.length>0 || array_certo.length>0) {
-        NotificacaoDiscord(projeto, array1, array2, array3,array4, id_discord, id_pasta_entrega)
+        DiscordNotification(projeto, array1, array2, array3,array4, id_discord, id_pasta_entrega)
         UpdateStatus(aba2,array_erro,15)
         UpdateStatus(aba2,array_certo,25)
       }
