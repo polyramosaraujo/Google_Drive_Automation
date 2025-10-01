@@ -55,7 +55,7 @@ function deliveryData(projeto, id_pasta_entrega, status_projeto, nomenclatura_mo
   let idsVerificacao = []
 
   // Função recursiva para listar arquivos e subpastas dentro de uma pasta
-  function varreduraDePastas(id_pasta_entrega) {
+  function folderScanning(id_pasta_entrega) {
     let pasta = DriveApp.getFolderById(id_pasta_entrega); // Obtém a pasta com base no ID
     let arquivos = pasta.getFiles();
     let subpastas = pasta.getFolders();
@@ -72,22 +72,22 @@ function deliveryData(projeto, id_pasta_entrega, status_projeto, nomenclatura_mo
         idsVerificacao.push(id);
 
         if (idsExistentes.indexOf(id) === -1) {
-          verificarNomenclatura(dados, idsExistentes, antisDisciplina, projeto, pastaId, id, nome, now, abreviacao_dis, formatos);
+          checkNaming(dados, idsExistentes, antisDisciplina, projeto, pastaId, id, nome, now, abreviacao_dis, formatos);
         }
       }
       while (subpastas.hasNext()) {
         let subpasta = subpastas.next();
         let subpastaId = subpasta.getId();
-        varreduraDePastas(subpastaId);
+        folderScanning(subpastaId);
       }
     }
     return dados;
   }
 
-  // Chama a função varreduraDePastas com o ID da pasta passado como argumento
-  varreduraDePastas(id_pasta_entrega); 
+  // Chama a função folderScanning com o ID da pasta passado como argumento
+  folderScanning(id_pasta_entrega); 
 
-  pegarArquivosStatus10(antisDisciplina, abreviacao_dis);
+  fetchFilesStatus10(antisDisciplina, abreviacao_dis);
 
   Logger.log(dados);
 
@@ -96,7 +96,7 @@ function deliveryData(projeto, id_pasta_entrega, status_projeto, nomenclatura_mo
   }
 }
 
-function pegarArquivosStatus10(antisDisciplina, abreviacao_dis){
+function fetchFilesStatus10(antisDisciplina, abreviacao_dis){
   Logger.log("----- INICIO FUNÇÃO STATUS DIFERENTE -----")
 
   // Pegando itens da planilha
@@ -257,7 +257,7 @@ function pegarArquivosStatus10(antisDisciplina, abreviacao_dis){
   Logger.log("----- FIM DA FUNÇÃO DE STATUS DIFERENTE -----")
 }
 
-function verificarNomenclatura(dados, idsExistentes, antisDisciplina, projeto, pastaId, id, nome, now, abreviacao_dis, formatos) {
+function checkNaming(dados, idsExistentes, antisDisciplina, projeto, pastaId, id, nome, now, abreviacao_dis, formatos) {
 
     let antisTrue = false;
     let abreviacaoTrue = false;
