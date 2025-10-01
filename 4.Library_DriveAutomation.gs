@@ -1,4 +1,4 @@
-function BuscarArquivoIgual1(disciplina_inicial,formato_inicial,arquivo_inicial,id_pasta) {
+function FindDuplicateFile1(disciplina_inicial,formato_inicial,arquivo_inicial,id_pasta) {
   
   //Vai funcionar apenas pra pasta "Projetos Atualizados"
 
@@ -49,7 +49,7 @@ function BuscarArquivoIgual1(disciplina_inicial,formato_inicial,arquivo_inicial,
   return 0 //Não
 }
 
-function BuscarArquivoSemelhante(disciplina_inicial,formato_inicial,revisao_inicial,arquivo_inicial,id_pasta) {
+function FindSimilarFile(disciplina_inicial,formato_inicial,revisao_inicial,arquivo_inicial,id_pasta) {
   //Vai funcionar apenas pra pasta "Projetos Atualizados"
 
   Logger.log('>>> Início da busca de um arquivo semelhante em "Projetos Atualizados" <<<')
@@ -120,7 +120,7 @@ function BuscarArquivoSemelhante(disciplina_inicial,formato_inicial,revisao_inic
   return 0 //Não
 }
 
-function BuscarArquivoIgual2(disciplina_inicial,formato_inicial,arquivo_inicial,id_pasta) {
+function FindDuplicateFile2(disciplina_inicial,formato_inicial,arquivo_inicial,id_pasta) {
 
   //Vai funcionar apenas pra pasta "Controle de versão"
 
@@ -180,7 +180,7 @@ function BuscarArquivoIgual2(disciplina_inicial,formato_inicial,arquivo_inicial,
   return pasta_disciplina //Não
 }
 
-function ControleVersao(abreviacao,disciplina,formato_inicial,fase,revisao,id_arquivo,arquivo,pasta_disciplina) {
+function VersionControl(abreviacao,disciplina,formato_inicial,fase,revisao,id_arquivo,arquivo,pasta_disciplina) {
 
   Logger.log('>>> Início do controle de versão <<<')
 
@@ -281,7 +281,7 @@ function ControleVersao(abreviacao,disciplina,formato_inicial,fase,revisao,id_ar
   Logger.log('>>> Fim do controle de versão <<<')
 }
 
-function FazerCopia(id_pasta_atualizados,disciplina0,formato0,id_arquivo,arquivo) {
+function MakeCopy(id_pasta_atualizados,disciplina0,formato0,id_arquivo,arquivo) {
 
   Logger.log('>>> Início da cópia do arquivo para Projetos Atualizados <<<')
   //var id_pasta_atualizados = '1B_yLOn9BmimbCaNWR8X6aNI3fe4N_pkI'
