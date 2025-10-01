@@ -1,6 +1,6 @@
-//FUNÇÃO "ListarArquivos" RODANDO A CADA 15 MINUTOS >> ACIONADOR
+//"ListFiles" FUNCTION RUNNING EVERY 15 MINUTES >> TRIGGER
 
-function ListarArquivos() {
+function ListFiles() {
   Logger.log('INÍCIO DA LISTAGEM DE ARQUIVOS')
 
   //Pegando planilha mestra
@@ -30,7 +30,7 @@ function ListarArquivos() {
 
     //Filtro para rodar a função apenas para os projetos em andamento (status = 10)
     if(status_projeto == 10){
-      dadosEntregas(projeto, id_pasta_entrega, status_projeto, nomenclatura_modelos)
+      deliveryData(projeto, id_pasta_entrega, status_projeto, nomenclatura_modelos)
     }
   }
   Logger.log('FIM DA LISTAGEM DE ARQUIVOS')
