@@ -1,5 +1,6 @@
-//FUNÇÃO "ExcluirVazias" RODANDO A CADA 15 MINUTOS >> CRIAR ACIONADOR
-function ExcluirVazias() {
+//"DeleteEmptySubfolders" FUNCTION RUNNING EVERY 15 MINUTES >> CREATE TRIGGER
+
+function DeleteEmptySubfolders() {
 
   Logger.log('INÍCIO DO CÓDIGO DE EXCLUSÃO DE SUBPASTAS VAZIAS')
 
@@ -30,12 +31,12 @@ function ExcluirVazias() {
     var pasta = DriveApp.getFolderById(id_entregas)
 
     // Verificar e excluir subpastas vazias recursivamente
-    verificarExcluirSubpastas(pasta)
+    checkDeleteSubfolders(pasta)
   }
 }
 
 // Função recursiva para verificar e excluir subpastas vazias
-function verificarExcluirSubpastas(pasta) {
+function checkDeleteSubfolders(pasta) {
   var subpastas = pasta.getFolders()
   while (subpastas.hasNext()) {
     var subpasta = subpastas.next()
@@ -51,7 +52,7 @@ function verificarExcluirSubpastas(pasta) {
       Logger.log("SUBPASTA " + nome + " excluída com sucesso!")
     } else {
       // Verificando subpastas recursivamente
-      verificarExcluirSubpastas(subpasta)
+      checkDeleteSubfolders(subpasta)
     }
   }
 }
