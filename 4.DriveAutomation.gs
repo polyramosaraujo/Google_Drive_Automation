@@ -82,7 +82,7 @@ function DriveAutomation() {
         Logger.log('O arquivo está de acordo com o padrão de nomenclatura!')
 
         //Verificação se já existe um arquivo de mesmo nome na pasta de "Projetos Atualizados"
-        var arquivo_igual0=BuscarArquivoIgual1(disciplina,formato,arquivo,id_pasta_atualizados)
+        var arquivo_igual0=FindDuplicateFile1(disciplina,formato,arquivo,id_pasta_atualizados)
 
         //Se existir um arquivo de mesmo nome, sua coluna "Status" na planilha será preenchida com 11, para, posteriormente, a função NotificarEquipe possa enviar a notificação correta
         if (arquivo_igual0==1) {
@@ -94,7 +94,7 @@ function DriveAutomation() {
         if (arquivo_igual0==0) {
 
           //Verificação se já existe um arquivo de mesmo nome na pasta de "Projetos Atualizados", ignorando a parte da revisão no nome do arquivo 
-          var arquivo_semelhante=BuscarArquivoSemelhante(disciplina,formato,revisao,arquivo,id_pasta_atualizados)
+          var arquivo_semelhante=FindSimilarFile(disciplina,formato,revisao,arquivo,id_pasta_atualizados)
 
           //Se o arquivo possui um arquivo semelhante na pasta de "Projetos Atualizados" mas a revisão do último é maior que a do arquivo postado na pasta de "Entregas", sua coluna "Status" na planilha será preenchida com 12, para, posteriormente, a função NotificarEquipe possa enviar a notificação correta
           if (arquivo_semelhante==1) {
@@ -110,10 +110,10 @@ function DriveAutomation() {
               var id_arquivo_semelhante = arquivo_semelhante[1]
               var rev_arquivo_semelhante = nome_arquivo_semelhante.slice(-6, -4)
 
-              arquivo_igual1=BuscarArquivoIgual2(disciplina,formato,nome_arquivo_semelhante,id_pasta_controle)
+              arquivo_igual1=FindDuplicateFile2(disciplina,formato,nome_arquivo_semelhante,id_pasta_controle)
 
               if (arquivo_igual1!=1) {
-                ControleVersao(abreviacao,disciplina,formato,fase,rev_arquivo_semelhante,id_arquivo_semelhante,nome_arquivo_semelhante,arquivo_igual1)
+                VersionControl(abreviacao,disciplina,formato,fase,rev_arquivo_semelhante,id_arquivo_semelhante,nome_arquivo_semelhante,arquivo_igual1)
               }
 
               DriveApp.getFolderById(id_arquivo_semelhante).setTrashed(true)
@@ -122,15 +122,15 @@ function DriveAutomation() {
             }
 
             //Verificação se já existe um arquivo de mesmo nome na pasta de "Controle de versão"
-            arquivo_igual2=BuscarArquivoIgual2(disciplina,formato,arquivo,id_pasta_controle)
+            arquivo_igual2=FindDuplicateFile2(disciplina,formato,arquivo,id_pasta_controle)
 
             //Se não existir um arquivo de mesmo nome,vai rodar a função que cria a pasta no formato correto na pasta "Controle de versão" e faz uma cópia do arquivo em questão até lá
             if (arquivo_igual2!=1) {
-              ControleVersao(abreviacao,disciplina,formato,fase,revisao,id_arquivo,arquivo,arquivo_igual2)
+              VersionControl(abreviacao,disciplina,formato,fase,revisao,id_arquivo,arquivo,arquivo_igual2)
             }
 
             //Após todas as etapas e verificações, fazer a cópia do arquivo em questão para a devida pasta em "Projetos Atualizados"
-            FazerCopia(id_pasta_atualizados,disciplina,formato,id_arquivo,arquivo)
+            MakeCopy(id_pasta_atualizados,disciplina,formato,id_arquivo,arquivo)
 
             //Excluir arquivo da pasta "Entregas"
             DriveApp.getFolderById(id_arquivo).setTrashed(true)
