@@ -1,9 +1,9 @@
 //"ProjectsAPI" FUNCTION RUNNING AT LEAST ONCE A DAY >> TRIGGER
 
-function ProjectsAPI() {
+function ProjectsAPI(accessToken,listId) {
   
   let ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheets = ss.getSheetByName('Projetos API');
+  let sheets = ss.getSheetByName('Projects API');
 
   let dataset = []
   let response = null
@@ -13,11 +13,11 @@ function ProjectsAPI() {
     'method': 'GET',
     'headers': {
       'muteHttpExceptions': true,
-      'Authorization': 'pk_3031385_TYR5O7H2K5Q1JSLE3H2G97FVS1QFMHAB'
+      'Authorization': `${accessToken}`
     }
   };
 
-  url = "https://api.clickup.com/api/v2/list/13659954/task?include_closed=true"
+  url = `https://api.clickup.com/api/v2/list/${listId}/task?include_closed=true`
 
   try{
   response = UrlFetchApp.fetch(url,options)
@@ -52,12 +52,12 @@ function ProjectsAPI() {
       Logger.log(e)
     };
     
-    var stage = Stage(data.status.status)
+    var phase = Phase(data.status.status)
     returndata.push([
       data.id
       ,data.name
       ,GetCustomField(data,'Nome exato pasta projeto')
-      ,stage
+      ,phase
     ])
   };
 
