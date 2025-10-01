@@ -1,4 +1,4 @@
-function dadosEntregas(projeto, id_pasta_entrega, status_projeto, nomenclatura_modelos) {
+function deliveryData(projeto, id_pasta_entrega, status_projeto, nomenclatura_modelos) {
 
   Logger.log('INÍCIO DA FUNÇÃO DADOS ENTREGAS')
 
