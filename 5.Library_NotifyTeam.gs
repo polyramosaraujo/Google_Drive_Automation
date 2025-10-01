@@ -1,4 +1,4 @@
-function NotificacaoDiscord(projeto, array1, array2, array3, array4, id_discord, id_pasta_entrega) {
+function DiscordNotification(projeto, array1, array2, array3, array4, id_discord, id_pasta_entrega) {
   //projeto, array1, array2, array3, array4, id_discord, id_pasta_entrega
   Logger.log('>>> Início da notificação da equipe <<<')
 
