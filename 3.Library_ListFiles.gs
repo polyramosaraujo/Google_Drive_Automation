@@ -1,6 +1,6 @@
 function deliveryData(projeto, id_pasta_entrega, status_projeto, nomenclatura_modelos) {
 
-  Logger.log('INÍCIO DA FUNÇÃO DADOS ENTREGAS')
+  Logger.log('START OF "DELIVERY DATA" FUNCTION')
 
   let now = Utilities.formatDate(new Date(), 'GMT-03', 'yyyy-MM-dd HH:mm:ss');
 
