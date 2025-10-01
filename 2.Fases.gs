@@ -1,6 +1,6 @@
-//FUNÇÃO "Fases" RODANDO PELO MENOS 1 VEZ AO DIA >> ACIONADOR
+//"Phases" FUNCTION RUNNING AT LEAST ONCE A DAY >> TRIGGER
 
-function Fases() {
+function Phases() {
 
   var planilha = SpreadsheetApp.getActiveSpreadsheet()
 
