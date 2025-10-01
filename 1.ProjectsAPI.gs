@@ -1,6 +1,6 @@
-//FUNÇÃO "ProjetosAPI" RODANDO PELO MENOS 1 VEZ AO DIA >> ACIONADOR
+//"ProjectsAPI" FUNCTION RUNNING AT LEAST ONCE A DAY >> TRIGGER
 
-function ProjetosAPI() {
+function ProjectsAPI() {
   
   let ss = SpreadsheetApp.getActiveSpreadsheet();
   let sheets = ss.getSheetByName('Projetos API');
@@ -52,12 +52,12 @@ function ProjetosAPI() {
       Logger.log(e)
     };
     
-    var fase = Fase(data.status.status)
+    var stage = Stage(data.status.status)
     returndata.push([
       data.id
       ,data.name
       ,GetCustomField(data,'Nome exato pasta projeto')
-      ,fase
+      ,stage
     ])
   };
 
