@@ -1,8 +1,4 @@
 function Fase(portfolio) {
-  //var planilha = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Projetos API')
- // var ultimalinha = planilha.getLastRow()
-  //var fases1 = planilha.getRange(2,4,ultimalinha-1,1).getValues()
-
   if (portfolio == "fase 01") {
     return('F01')
   }
