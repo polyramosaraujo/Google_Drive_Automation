@@ -1,6 +1,6 @@
-//FUNÇÃO "AutomacaoDrive" RODANDO A CADA 15 MINUTOS >> ACIONADOR
+//"DriveAutomation" FUNCTION RUNNING EVERY 15 MINUTES >> TRIGGER
 
-function AutomacaoDrive() {
+function DriveAutomation() {
 
   Logger.log('INÍCIO DA MOVIMENTAÇÃO DE ARQUIVOS NO DRIVE')
 
