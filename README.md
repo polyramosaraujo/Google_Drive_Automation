@@ -1,4 +1,4 @@
-# 💾 Google Drive File Management System
+# 💾 Google Drive file management system
 
 This project aims to optimize the workflow of the Projects team in a company specialized in Coordination and Compatibility of Civil Engineering Projects.
 
