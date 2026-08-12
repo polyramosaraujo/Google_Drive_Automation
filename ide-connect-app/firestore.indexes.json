@@ -1,0 +1,13 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "prayerRequests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "weekKey", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
